@@ -1,0 +1,22 @@
+<!-- <p>author-list works!</p> -->
+<!-- <button class="p-2 btn btn-primary" (click)="emitValue()">Test</button> -->
+<div class="p-5">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Gender</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let au of authors">
+                <th scope="row">{{au.id}}</th>
+                <td>{{au.firstName}}</td>
+                <td>{{au.lastName}}</td>
+                <td>{{au.gender}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

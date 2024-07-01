@@ -1,0 +1,40 @@
+<h1 style="text-align: center;">product-list</h1>
+
+
+<div class="p-3">
+    <button class="btn btn-success" routerLink="/product/create">Add New Product</button>
+</div>
+
+<div class="p-5">
+
+    <table class="table" style="text-align: center;">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">image</th>
+                <th scope="col">name</th>
+                <th scope="col">quantity</th>
+                <th scope="col">category</th>
+                <th scope="col">action</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let p of products;index as i" class="table-group-divider table-divider-color">
+            <tr>
+                <th scope="row">{{i+1}}</th>
+                <td><img src="{{p?.image}}" alt="" width="100px" height="100px"></td>
+                <td>{{p?.name}}</td>
+                <td>{{p?.quantity}}</td>
+                <td><span class="badge badge-primary rounded-pill d-inline">{{p?.category?.name}}</span></td>
+                <td>
+                    <button type="button" class="btn btn-warning btn-sm btn-rounded" routerLink="edit/{{p?.id}}">
+                        Edit
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm btn-rounded" (click)="removeProduct(p.id)"
+                        style="margin-left: 10px;">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

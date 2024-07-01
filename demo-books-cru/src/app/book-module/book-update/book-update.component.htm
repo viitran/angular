@@ -1,0 +1,48 @@
+<p>book-update works!</p>
+<div class="p-5">
+    <div *ngIf="formEdit">
+        <form [formGroup]="formEdit" (ngSubmit)="onSubmit()">
+            <label for="name" class="form-label">name:</label>
+            <input type="text" class="form-control" id="name" formControlName="name" />
+            <div *ngIf="validControl['name'].touched && validControl['name'].hasError('required')">
+                <p>Cannot be blank</p>
+            </div>
+            <!-- @if (validControl['name'].touched && validControl['name'].hasError('required')) {
+                <p>Cannot be blank</p>
+            } -->
+            <br />
+
+            <label for="author" class="form-label">author:</label>
+            <input type="text" class="form-control" id="author" formControlName="author" />
+            <div *ngIf="validControl['author'].touched && validControl['author'].hasError('required')">
+                <p>Cannot be blank</p>
+            </div>
+            <br />
+
+            <label for="quantity" class="form-label">quantity:</label>
+            <input type="text" class="form-control" id="quantity" formControlName="quantity" />
+            <div *ngIf="validControl['quantity'].touched && validControl['quantity'].hasError('required')">
+                <p>Cannot be blank</p>
+            </div>
+            <br />
+
+            <label for="description" class="form-label">description:</label>
+            <textarea type="text" class="form-control" id="description" formControlName="description"></textarea>
+            <div *ngIf="validControl['description'].touched && validControl['description'].hasError('required')">
+                <p>Cannot be blank</p>
+            </div>
+            <br />
+
+            <label for="category" class="form-label">category:</label>
+            <select id="category" formControlName="category" class="form-control" [compareWith]="equal">
+                <option *ngFor="let cate of category;index as i" [ngValue]="cate">{{cate.name}}</option>
+            </select>
+            <br />
+            <div class="d-grid gap-2">
+                <button type="submit" [disabled]="!formEdit.valid" class="btn btn-success">Update</button>
+                <button routerLink="/" class="btn btn-info">back to list</button>
+            </div>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="p-5">
+    <button class="btn btn-success" routerLink="/books/create">Thêm mới sách</button>
+    <div class="p-3">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Tên sách</th>
+                    <th scope="col">Tác giả</th>
+                    <th scope="col">Số lượng</th>
+                    <th scope="col">Thể loại</th>
+                    <th scope="col">Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let b of books;index as i">
+                    <!-- <td scope="row"><img style="height: 70px; width: 70px;" src="{{b?.image}}" alt="" /></td> -->
+                    <td>{{b?.name}}</td>
+                    <td>{{b?.author}}</td>
+                    <td>{{b?.quantity}}</td>
+                    <td>{{b?.category?.name}}</td>
+                    <td>
+                        <!-- <button class="btn btn-warning" [routerLink]="['edit',b.id]">Cập nhật</button> -->
+                        <button class="btn btn-warning" routerLink="edit/{{b.id}}">Cập nhật</button>
+                        <button class="btn btn-warning" (click)="remove(b.id)">remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

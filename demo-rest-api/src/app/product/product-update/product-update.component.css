@@ -1,0 +1,32 @@
+.form-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
+.img-preview {
+    max-width: 200px;
+    margin-top: 10px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btn-container button {
+    margin-right: 10px;
+}

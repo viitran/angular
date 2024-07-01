@@ -1,0 +1,47 @@
+
+<div class="p-5">
+    <div class="form-container">
+        <h1 style="text-align: center;">Edit Product</h1>
+        <div *ngIf="formEdit">
+            <form class="row g-3" [formGroup]="formEdit" (ngSubmit)="onSubmit()">
+                <div class="col-md-6">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" formControlName='name' id="name">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputQuantity" class="form-label">Quantity</label>
+                    <input type="text" class="form-control" formControlName="quantity" id="inputQuantity">
+                </div>
+                <div class="col-12">
+                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                    <textarea class="form-control" formControlName="description" id="exampleFormControlTextarea1"
+                        rows="3"></textarea>
+                </div>
+                <div class="col-4">
+                    <label for="inputState" class="form-label">Category</label>
+                    <select id="inputState" formControlName="category" class="form-select" [compareWith]="equal">
+                        <option disabled value="">Choose category</option>
+                        <option *ngFor="let cate of category; index as i" [ngValue]="cate">{{cate?.name}}</option>
+                    </select>
+                </div>
+                <div class="col-md-8">
+                    <label for="inputZip" class="form-label">Upload image</label>
+                    <input type="file" (change)="onFileSelected($event)" #upload class="form-control" id="inputZip">
+                </div>
+                <div class="col-12" *ngIf="previewUrl && !isUploaded">
+                    <img [src]="previewUrl" alt="Image Preview" class="img-thumbnail"
+                        style="max-width: 200px; margin-top: 10px;">
+                    <button type="button" (click)="uploadFile()" [disabled]="isUploading" class="btn btn-success">Upload</button>
+                    <button type="button" (click)="cancelUpload()" class="btn btn-danger">Hủy</button>
+                </div>
+                <div class="row">
+                    <div class="col-2"> <button type="submit" [disabled]="isUploading"
+                            class="btn btn-primary">Create</button></div>
+                    <div class="col-10">
+                        <button type="button" routerLink="/product" class="btn btn-danger">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

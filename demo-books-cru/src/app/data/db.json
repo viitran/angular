@@ -1,0 +1,34 @@
+{
+  "books": [
+    {
+      "name": "b",
+      "author": "b",
+      "quantity": "b",
+      "description": "b",
+      "image": "C:\\fakepath\\137561035_2818038055141294_4737778522488810246_n.jpg",
+      "category": {
+        "id": 2,
+        "name": "truyện dài"
+      },
+      "id": 2
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "truyện tranh"
+    },
+    {
+      "id": 2,
+      "name": "truyện dài"
+    },
+    {
+      "id": 3,
+      "name": "kinh dị"
+    },
+    {
+      "id": 4,
+      "name": "tiểu sử"
+    }
+  ]
+}
